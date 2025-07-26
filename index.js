@@ -30,10 +30,10 @@ async function main() {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
   const name = await rl.question('Project name: ');
-  const inputDir = await rl.question('Source folder (default: pages): ') || 'pages';
+  const inputDir = await rl.question('Source folder (default: src): ') || 'src';
   const outputDir = await rl.question('Output folder (default: dist): ') || 'dist';
-  const layoutDir = await rl.question('Layout folder (default: layouts): ') || 'layouts';
-  const componentDir = await rl.question('Component folder (default: components): ') || 'components';
+  const layoutDir = await rl.question('Layout folder (default: src/layouts): ') || 'src/layouts';
+  const componentDir = await rl.question('Component folder (default: src/components): ') || 'src/components';
   rl.close();
 
   const targetDir = path.resolve(process.cwd(), name || 'dompile-site');
