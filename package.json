@@ -1,11 +1,15 @@
 {
   "name": "create-dompile-site",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "type": "module",
   "bin": {
     "create-dompile-site": "./index.js"
   },
-  "description": "Scaffold a new DOMpile-based static site project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dompile/create-dompile-site.git"
+  },
+  "description": "Scaffold a new dompile-based static site project",
   "keywords": [
     "dompile",
     "static-site-generator",

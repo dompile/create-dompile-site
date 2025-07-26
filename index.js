@@ -32,8 +32,8 @@ async function main() {
   const name = await rl.question('Project name: ');
   const inputDir = await rl.question('Source folder (default: src): ') || 'src';
   const outputDir = await rl.question('Output folder (default: dist): ') || 'dist';
-  const layoutDir = await rl.question('Layout folder (default: src/layouts): ') || 'src/layouts';
-  const componentDir = await rl.question('Component folder (default: src/components): ') || 'src/components';
+  const layoutDir = await rl.question('Layout folder (default: src/.layouts): ') || 'src/.layouts';
+  const componentDir = await rl.question('Component folder (default: src/.components): ') || 'src/.components';
   rl.close();
 
   const targetDir = path.resolve(process.cwd(), name || 'dompile-site');
@@ -44,12 +44,9 @@ async function main() {
     name: name || 'dompile-site',
     type: 'module',
     scripts: {
-      build: `dompile build ${inputDir} ${outputDir} --layouts ${layoutDir} --components ${componentDir}`,
-      serve: `npx serve ${outputDir}`
-    },
-    dependencies: {
-      dompile: "^1.0.0"
-    }
+      build: `npx dompile build ${inputDir} ${outputDir} --layouts ${layoutDir} --components ${componentDir}`,
+      serve: `npx dompile serve ${outputDir}`
+    }   
   };
   await writeFile(pkgPath, JSON.stringify(pkgJson, null, 2), 'utf-8');
 
