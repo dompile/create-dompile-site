@@ -44,8 +44,8 @@ async function main() {
     name: name || 'dompile-site',
     type: 'module',
     scripts: {
-      build: `npx dompile build ${inputDir} ${outputDir} --layouts ${layoutDir} --components ${componentDir}`,
-      serve: `npx dompile serve ${outputDir}`
+      build: `npx dompile/cli build ${inputDir} ${outputDir} --layouts ${layoutDir} --components ${componentDir}`,
+      serve: `npx dompile/cli serve ${outputDir}`
     }   
   };
   await writeFile(pkgPath, JSON.stringify(pkgJson, null, 2), 'utf-8');
