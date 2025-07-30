@@ -1,20 +1,23 @@
 {
-  "name": "create-dompile-site",
+  "name": "create-unify-site",
   "version": "0.0.1",
   "type": "module",
   "bin": {
-    "create-dompile-site": "./index.js"
+    "create-unify-site": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dompile/create-dompile-site.git"
+    "url": "https://github.com/fwdslsh/create-unify-site.git"
   },
-  "description": "Scaffold a new dompile-based static site project",
+  "description": "Scaffold a new unify-based static site project",
   "keywords": [
-    "dompile",
+    "unify",
     "static-site-generator",
     "create",
-    "starter"
+    "starter",
+    "ssg",
+    "html",
+    "fwdslsh"
   ],
   "author": "ITLackey",
   "license": "CC0-1.0",

@@ -2,8 +2,6 @@
 
 import { fileURLToPath } from 'url';
 import path from 'path';
-import fs from 'fs';
-import { execSync } from 'child_process';
 import readline from 'readline/promises';
 import { mkdir, copyFile, readdir, stat, writeFile } from 'fs/promises';
 
@@ -36,17 +34,17 @@ async function main() {
   const componentDir = await rl.question('Component folder (default: src/.components): ') || 'src/.components';
   rl.close();
 
-  const targetDir = path.resolve(process.cwd(), name || 'dompile-site');
+  const targetDir = path.resolve(process.cwd(), name || 'unify-site');
   await copy(templateDir, targetDir);
 
   const pkgPath = path.join(targetDir, 'package.json');
   const pkgJson = {
-    name: name || 'dompile-site',
+    name: name || 'unify-site',
     type: 'module',
     scripts: {
-      build: `npx dompile/cli build ${inputDir} ${outputDir} --layouts ${layoutDir} --components ${componentDir}`,
-      serve: `npx dompile/cli serve ${outputDir}`
-    }   
+      build: `npx @fwdslsh/unify build ${inputDir} ${outputDir} --layouts ${layoutDir} --components ${componentDir}`,
+      serve: `npx @fwdslsh/unify serve ${outputDir}`
+    }
   };
   await writeFile(pkgPath, JSON.stringify(pkgJson, null, 2), 'utf-8');
 
